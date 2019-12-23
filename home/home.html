@@ -1,0 +1,51 @@
+<form name="projectForm" ng-controller="HomeCtrl as ctrl">
+	<div ng-cloak>
+		<md-content>
+			<md-tabs class="md-primary" md-center-tabs>
+				<md-tab label="todos">
+					<md-content class="md-padding">
+						<md-list>
+							<md-list-item ng-repeat="tarefa in ctrl.tarefasList">
+								<p> {{ tarefa.nome }} </p>
+								<md-checkbox ng-click="ctrl.alteraStatus()" class="md-secondary"
+									ng-model="tarefa.status"></md-checkbox>
+							</md-list-item>
+						</md-list>
+
+					</md-content>
+				</md-tab>
+				<md-tab label="pendentes">
+					<md-content class="md-padding">
+						<md-list-item ng-repeat="tarefa in ctrl.tarefasPendentesList">
+							<p> {{ tarefa.nome }} </p>
+							<md-checkbox ng-click="ctrl.alteraStatus(tarefa.id)" class="md-secondary" ng-model="tarefa.status">
+							</md-checkbox>
+						</md-list-item>
+
+					</md-content>
+				</md-tab>
+				<md-tab label="feitos">
+					<md-content class="md-padding">
+						<md-list-item ng-repeat="tarefa in ctrl.tarefasFeitasList">
+							<p> {{ tarefa.nome }} </p>
+							<md-checkbox ng-click="ctrl.alteraStatus()" class="md-secondary" ng-model="tarefa.status">
+							</md-checkbox>
+						</md-list-item>
+					</md-content>
+				</md-tab>
+			</md-tabs>
+		</md-content>
+	</div>
+	<md-divider></md-divider>
+	<p>Adicionar Tarefa</p>
+	<div layout-gt-sm="row">
+		<md-input-container class="md-block" flex-gt-sm>
+			<label>Descrição</label>
+			<input ng-model="ctrl.nome">
+    </md-input-container>
+			<md-input-container class="md-block" flex-gt-sm>
+				<md-button ng-click="ctrl.adiciona()" class="md-raised md-primary">Adicionar Tarefa</md-button>
+			</md-input-container>
+	</div>
+
+</form>
