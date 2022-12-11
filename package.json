@@ -9,7 +9,7 @@
     "angular-aria": "^1.7.5",
     "angular-material": "^1.1.10",
     "angular-messages": "^1.7.5",
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   },
   "engine": "node >=0.6.x",
   "scripts": {
